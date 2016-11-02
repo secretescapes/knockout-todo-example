@@ -6,6 +6,16 @@ function TasksViewModel() {
     }]);
     this.newTaskName = ko.observable();
     this.newTaskAssignee = ko.observable('Mario');
+    this.tasksCount = ko.computed(function() {
+    	return this.tasks().length
+    }, this);
+    this.doneCount = ko.computed(function() {
+    	doneCount = 0;
+    	for (var i = 0; i < this.tasks().length; i++) {
+    		if(this.tasks()[i].done()) doneCount++;
+    	}
+    	return doneCount;
+    }, this);
 
     this.addNewTask = function() {
     	this.tasks.push({
