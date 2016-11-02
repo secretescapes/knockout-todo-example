@@ -21,17 +21,17 @@
 				<h2>Tasks</h2>
 				<ul data-bind="foreach: tasks">
 					<li>
-						<span data-bind="text: name"></span>
-						<span data-bind="text: assignee"></span>
+						<strong data-bind="text: name"></strong> Assigned to:
+						<strong data-bind="text: assignee"></strong>
 					</li>
 				</ul>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
 					<h2>Add new tasks</h2>
-					<input type="text" placeholder="Task"/>
-					<input type="text" placeholder = "Assignee"/>	
-					<button class='btn'>Add</button>	
+					<input type="text" data-bind="value: newTaskName" placeholder="Task"/>
+					<input type="text" data-bind="value: newTaskAssignee" placeholder = "Assignee"/>	
+					<button data-bind="click: addNewTask" class='btn'>Add</button>	
 				</div>
 			</div>
 			</div>
