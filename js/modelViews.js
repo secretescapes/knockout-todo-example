@@ -1,4 +1,5 @@
 function TasksViewModel() {
+	var self = this;
     this.tasks = ko.observableArray([{
     	name: 'Make to-do app',
     	assignee: 'Mario',
@@ -15,6 +16,16 @@ function TasksViewModel() {
     		if(this.tasks()[i].done()) doneCount++;
     	}
     	return doneCount;
+    }, this);
+    this.filterTerm = ko.observable();
+    this.filteredTasks = ko.computed(function(){
+    	if (!this.filterTerm()) {
+    		return this.tasks();
+    	} else {
+    		return ko.utils.arrayFilter(this.tasks(), function(task) {
+                return task.name.indexOf(self.filterTerm())>-1;
+            });
+    	}
     }, this);
 
     this.addNewTask = function() {
