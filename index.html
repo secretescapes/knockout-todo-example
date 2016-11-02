@@ -31,7 +31,7 @@
 					<h2>Add new tasks</h2>
 					<input type="text" data-bind="textInput: newTaskName" placeholder="Task"/>
 					<input type="text" data-bind="textInput: newTaskAssignee" placeholder = "Assignee"/>	
-					<button data-bind="click: addNewTask" class='btn'>Add</button>
+					<button data-bind="click: addNewTask, visible: newTaskName() && newTaskAssignee()" class='btn'>Add</button>
 				</div>
 				<strong data-bind="text: newTaskName"></strong> Assigned to:
 				<strong data-bind="text: newTaskAssignee"></strong>
