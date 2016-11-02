@@ -21,8 +21,9 @@
 				<h2>Tasks</h2>
 				<ul data-bind="foreach: tasks">
 					<li>
-						<strong data-bind="text: name"></strong> Assigned to:
-						<strong data-bind="text: assignee"></strong>
+						<span data-bind="css: {done_class: done}"><strong data-bind="text: name"></strong> Assigned to:
+						<strong data-bind="text: assignee"></strong></span>
+						<input data-bind="checked: done" type='checkbox'>
 					</li>
 				</ul>
 			</div>
